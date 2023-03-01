@@ -1,0 +1,22 @@
+{
+  "name": "@Fosten/volto-baseball",
+  "version": "0.1.0",
+  "description": "volto-baseball: Volto add-on",
+  "main": "src/index.js",
+  "license": "MIT",
+  "keywords": [
+    "volto-addon",
+    "volto",
+    "plone",
+    "react"
+  ],
+  "scripts": {
+    "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon"
+  },
+  "dependencies": {
+    "@asbeane/mlb-stats-api": "asbeane/mlb-stats-api"
+  },
+  "devDependencies": {
+    "@plone/scripts": "*"
+  }
+}
