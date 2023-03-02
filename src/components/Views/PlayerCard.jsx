@@ -27,6 +27,9 @@ const ShowPosts = () => {
         return <p key={i}>Full Name: {item.fullName}</p>;
       })}
       {response.people?.map((item, i) => {
+        return <p key={i}>Primary Position: {item.primaryPosition.name}</p>;
+      })}
+      {response.people?.map((item, i) => {
         return <p key={i}>Born: {item.birthDate}</p>;
       })}
       {response.people?.map((item, i) => {
@@ -49,8 +52,8 @@ const ShowPosts2 = () => {
     const [response2, setPosts2] = useState({});
     async function useResponse2() {
       try {
-        const response2 = await mlbStats.getPersonSeasonStats({
-          pathParams: { personId: 630105, gamePk: '?stats=statsSingleSeason&season=2022' },
+        const response2 = await mlbStats.getPerson({
+          pathParams: { personId: '630105/stats?stats=statsSingleSeason&season=2022' },
         });
         setPosts2(response2.data);
       } catch (err) {
@@ -64,6 +67,9 @@ const ShowPosts2 = () => {
       <div className="container">
         <table border="1">
           <tr>
+            <th>Year</th>
+            <th>Team</th>
+            <th>League</th>
             <th>AB</th>
             <th>H</th>
             <th>R</th>
@@ -76,6 +82,15 @@ const ShowPosts2 = () => {
             <th>OPS</th>
           </tr>
           <tr>
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].season}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].team.name}</td>;
+        })}        
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].league.name}</td>;
+        })}        
         {response2.stats?.map((item, i) => {
           return <td key={i}>{item.splits[i].stat.atBats}</td>;
         })}
@@ -133,7 +148,7 @@ const PlayerCardView = (props) => {
             alt={content.image_caption}
             avatar
           />
-          <p>Current Team: {content.currentteam}</p>
+          <p>Person ID: {content.personID}</p>
           <div dangerouslySetInnerHTML={{ __html: content.blurb.data }} />
         </Segment>
       </div>
