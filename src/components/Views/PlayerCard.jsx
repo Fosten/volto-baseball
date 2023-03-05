@@ -6,12 +6,13 @@ import { flattenToAppURL } from '@plone/volto/helpers';
 const MLBStatsAPI = require('@asbeane/mlb-stats-api');
 const mlbStats = new MLBStatsAPI();
 
-const ShowPosts = () => {
+const ShowPosts = (props) => {
+  const { content } = props;
   const [response, setPosts] = useState({});
   async function useResponse() {
     try {
       const response = await mlbStats.getPerson({
-        pathParams: { personId: 630105 },
+        pathParams: { personId: content.playerID },
       });
       setPosts(response.data);
     } catch (err) {
@@ -20,7 +21,7 @@ const ShowPosts = () => {
     }
   }
   useResponse();
-  
+
   return (
     <div className="container">
       {response.people?.map((item, i) => {
@@ -48,84 +49,87 @@ const ShowPosts = () => {
   );
 };
 
-const ShowPosts2 = () => {
-    const [response2, setPosts2] = useState({});
-    async function useResponse2() {
-      try {
-        const response2 = await mlbStats.getPerson({
-          pathParams: { personId: '630105/stats?stats=statsSingleSeason&season=2022' },
-        });
-        setPosts2(response2.data);
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.log(err);
-      }
+const ShowPosts2 = (props) => {
+  const { content } = props;
+  const [response2, setPosts2] = useState({});
+  async function useResponse2() {
+    try {
+      const response2 = await mlbStats.getPerson({
+        pathParams: {
+          personId: `${content.playerID}/stats?stats=statsSingleSeason&season=2022`,
+        },
+      });
+      setPosts2(response2.data);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log(err);
     }
-    useResponse2();
+  }
+  useResponse2();
 
-    return (
-      <div className="container">
-        <table border="1">
-          <tr>
-            <th>Year</th>
-            <th>Team</th>
-            <th>League</th>
-            <th>AB</th>
-            <th>H</th>
-            <th>R</th>
-            <th>HR</th>
-            <th>RBI</th>
-            <th>SB</th>
-            <th>AVG</th>
-            <th>OBP</th>
-            <th>SLG</th>
-            <th>OPS</th>
-          </tr>
-          <tr>
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].season}</td>;
-        })}
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].team.name}</td>;
-        })}        
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].league.name}</td>;
-        })}        
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].stat.atBats}</td>;
-        })}
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].stat.hits}</td>;
-        })}
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].stat.runs}</td>;
-        })}
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].stat.homeRuns}</td>;
-        })}
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].stat.rbi}</td>;
-        })}
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].stat.stolenBases}</td>;
-        })}
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].stat.avg}</td>;
-        })}
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].stat.obp}</td>;
-        })}
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].stat.slg}</td>;
-        })}
-        {response2.stats?.map((item, i) => {
-          return <td key={i}>{item.splits[i].stat.ops}</td>;
-        })}
+  return (
+    <div className="container">
+      <table border="1">
+        <tr>
+          <th>Year</th>
+          <th>Team</th>
+          <th>League</th>
+          <th>AB</th>
+          <th>H</th>
+          <th>R</th>
+          <th>HR</th>
+          <th>RBI</th>
+          <th>SB</th>
+          <th>AVG</th>
+          <th>OBP</th>
+          <th>SLG</th>
+          <th>OPS</th>
         </tr>
-        </table>
-      </div>
-    );
-    };
+        <tr>
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].season}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].team.name}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].league.name}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].stat.atBats}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].stat.hits}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].stat.runs}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].stat.homeRuns}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].stat.rbi}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].stat.stolenBases}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].stat.avg}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].stat.obp}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].stat.slg}</td>;
+          })}
+          {response2.stats?.map((item, i) => {
+            return <td key={i}>{item.splits[i].stat.ops}</td>;
+          })}
+        </tr>
+      </table>
+    </div>
+  );
+};
 
 const PlayerCardView = (props) => {
   const { content } = props;
@@ -136,9 +140,9 @@ const PlayerCardView = (props) => {
         <h1 className="documentFirstHeading">{content.title}</h1>
         <Segment clearing>
           <h2>Player Info</h2>
-          <ShowPosts />
+          <ShowPosts {...props} />
           <h2>2022 Stats</h2>
-          <ShowPosts2 />
+          <ShowPosts2 {...props} />
           <hr />
           Everything above this line is auto-generated.
           <Image
@@ -148,8 +152,8 @@ const PlayerCardView = (props) => {
             alt={content.image_caption}
             avatar
           />
-          <p>Person ID: {content.personID}</p>
-          <div dangerouslySetInnerHTML={{ __html: content.blurb.data }} />
+          <p>Player ID: {content.playerID}</p>
+          <div dangerouslySetInnerHTML={{ __html: content.blurb?.data }} />
         </Segment>
       </div>
     </Container>
