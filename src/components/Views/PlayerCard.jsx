@@ -64,72 +64,144 @@ const ShowPosts2 = (props) => {
       // eslint-disable-next-line no-console
       console.log(err);
     }
-  }
+  }  
   useResponse2();
+    const hitpitch = 'hitting';
+  console.log(hitpitch);
 
-  return (
+  if(hitpitch === 'hitting') {
+   return (
     <div className="container">
-      <table border="1">
-        <tr>
-          <th>Year</th>
-          <th>Team</th>
-          <th>League</th>
-          <th>AB</th>
-          <th>H</th>
-          <th>R</th>
-          <th>HR</th>
-          <th>RBI</th>
-          <th>SB</th>
-          <th>AVG</th>
-          <th>OBP</th>
-          <th>SLG</th>
-          <th>OPS</th>
-        </tr>
-        <tr>
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].season}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].team.name}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].league.name}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].stat.atBats}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].stat.hits}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].stat.runs}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].stat.homeRuns}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].stat.rbi}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].stat.stolenBases}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].stat.avg}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].stat.obp}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].stat.slg}</td>;
-          })}
-          {response2.stats?.map((item, i) => {
-            return <td key={i}>{item.splits[i].stat.ops}</td>;
-          })}
-        </tr>
-      </table>
-    </div>
-  );
+    <h2>2022 Hitting Stats</h2>
+    <table border="1">
+      <tr>
+        <th>Year</th>
+        <th>Team</th>
+        <th>League</th>
+        <th>AB</th>
+        <th>H</th>
+        <th>R</th>
+        <th>HR</th>
+        <th>RBI</th>
+        <th>SB</th>
+        <th>AVG</th>
+        <th>OBP</th>
+        <th>SLG</th>
+        <th>OPS</th>
+      </tr>
+      <tr>
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].season}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].team.name}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].league.name}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].stat.atBats}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].stat.hits}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].stat.runs}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].stat.homeRuns}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].stat.rbi}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].stat.stolenBases}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].stat.avg}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].stat.obp}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].stat.slg}</td>;
+        })}
+        {response2.stats?.map((item, i) => {
+          return <td key={i}>{item.splits[i].stat.ops}</td>;
+        })}
+      </tr>
+    </table>
+  </div>
+     );
+  }
+  if(hitpitch === 'pitching') {
+    return (
+      <div className="container">
+      <h2>2023 Pitching Stats</h2>
+        <table border="1">
+          <tr>
+            <th>Year</th>
+            <th>Team</th>
+            <th>League</th>
+            <th>GP</th>
+            <th>IP</th>
+            <th>H</th>
+            <th>ER</th>
+            <th>BB</th>
+            <th>K</th>
+            <th>W</th>
+            <th>SV</th>
+            <th>ERA</th>
+            <th>WHIP</th>
+          </tr>
+          <tr>
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].season}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].team.name}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].league.name}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].stat.gamesPlayed}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].stat.inningsPitched}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].stat.hits}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].stat.earnedRuns}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].stat.baseOnBalls}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].stat.strikeOuts}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].stat.wins}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].stat.saves}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].stat.era}</td>;
+            })}
+            {response2.stats?.map((item, i) => {
+              return <td key={i}>{item.splits[i].stat.whip}</td>;
+            })}
+          </tr>
+        </table>
+      </div>      );
+   }
+   else
+    return <div>{hitpitch} = undefined</div>
 };
+
 
 const PlayerCardView = (props) => {
   const { content } = props;
@@ -141,7 +213,6 @@ const PlayerCardView = (props) => {
         <Segment clearing>
           <h2>Player Info</h2>
           <ShowPosts {...props} />
-          <h2>2022 Stats</h2>
           <ShowPosts2 {...props} />
           <hr />
           Everything above this line is auto-generated.
