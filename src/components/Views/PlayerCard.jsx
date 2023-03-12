@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from '@plone/volto/helpers';
 import { Container, Image, Segment } from 'semantic-ui-react';
 import { flattenToAppURL } from '@plone/volto/helpers';
@@ -18,9 +18,12 @@ const ShowPosts = (props) => {
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);
-    }
+    } 
   }
+  useEffect(() => {
   useResponse();
+}, []);
+
   return (
     <div className="container">
       {response.people?.map((item, i) => {
@@ -51,7 +54,7 @@ const ShowPosts = (props) => {
 const ShowPosts2 = (props) => {
   const { content } = props;
   const [response2, setState] = useState({});
-  const [hitpitch, setState2] = useState('other');
+  const [hitpitch, setState2] = useState('null');
   async function useResponse2() {
     try {
       const response2 = await mlbStats.getPerson({
@@ -59,21 +62,22 @@ const ShowPosts2 = (props) => {
           personId: `${content.playerID}/stats?stats=statsSingleSeason&season=2022`,
         },
       })
-      const hitpitch = response2.data.stats[0].group.displayName
       setState(response2.data)
+      const hitpitch = response2.data.stats[0].group.displayName
       setState2(hitpitch)
-      } catch (err) {
+    } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);
     }
   }
-  useResponse2()
-  if (hitpitch === 'hitting') {
+  useEffect(() => {
+  useResponse2();
+}, []);
+
     return (
-      <div className="container">
-      {response2.stats?.map((item, i) => {
-            return item.group.displayName;
-          })}
+      (hitpitch === 'hitting') ? (
+        <div className="container">
+      <hr />
       <h3>2022 Hitting Stats</h3>
       <table border="1">
         <thead>
@@ -137,11 +141,12 @@ const ShowPosts2 = (props) => {
         </tbody>
       </table>
     </div>
-    )
-  }
-  if (hitpitch === 'pitching') {
-    return (
+  ) 
+  :
+  (hitpitch === 'pitching') ? 
+  (
       <div className="container">
+      <hr />
       <h3>2023 Pitching Stats</h3>
         <table border="1">
           <thead>
@@ -207,13 +212,12 @@ const ShowPosts2 = (props) => {
         </table>
       </div>
     )
-  }
-  else { 
-    return (
-      <div>{hitpitch} = undefined</div>
+: 
+ (
+      <div className="container"></div>
     )
-  }
-};
+    )
+}; 
 
 const PlayerCardView = (props) => {
   const { content } = props;
@@ -235,7 +239,6 @@ const PlayerCardView = (props) => {
             alt={content.image_caption}
             avatar
           />
-          <p>Player ID: {content.playerID}</p>
           <p dangerouslySetInnerHTML={{ __html: content.blurb?.data }} />
         </Segment>
       </div>
