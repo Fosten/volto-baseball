@@ -12,13 +12,10 @@ const PlayerCardView = (props) => {
         <h1 className="documentFirstHeading">{content.title}</h1>
         <Segment clearing>
           {hasBlocksData(content) ? (
-            <RenderBlocks content={content } />
+            <RenderBlocks content={content} />
           ) : (
             <div></div>
             )}
-          <hr />
-          Everything above this line is auto-generated.
-          <hr />
           <Image
             src={flattenToAppURL(content.image?.scales?.preview?.download)}
             size="small"
