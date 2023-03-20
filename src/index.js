@@ -1,6 +1,7 @@
 import '@plone/volto/config';
 import { PlayerCardView } from '@Fosten/volto-baseball/components/';
 import customBlocks from '@Fosten/volto-baseball/components/Blocks/customBlocks'
+import './theme/main.less';
 
 export default function applyConfig(config) {
   config.views = {
