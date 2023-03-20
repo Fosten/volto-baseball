@@ -64,10 +64,18 @@ const View = (props) => {
               return <td key={i}>{item.splits[i].season}</td>;
             })}
             {response2.stats?.map((item, i) => {
-              return <td key={i}>{item.splits[i].team.name}</td>;
+              return (
+                (item.splits[i].numTeams > 1) ?
+                  (<td key={i}>Multiple Teams</td>)
+                  : (<td key={i}>{item.splits[i].team.name}</td>)
+              );
             })}
             {response2.stats?.map((item, i) => {
-              return <td key={i}>{item.splits[i].league.name}</td>;
+                return (
+                  (item.splits[i].numTeams > 1) ?
+                    (<td key={i}>Multiple Teams</td>)
+                    : (<td key={i}>{item.splits[i].league.name}</td>)
+              );
             })}
             {response2.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.atBats}</td>;
@@ -133,10 +141,18 @@ const View = (props) => {
                 return <td key={i}>{item.splits[i].season}</td>;
               })}
               {response2.stats?.map((item, i) => {
-                return <td key={i}>{item.splits[i].team.name}</td>;
+                return (
+                  (item.splits[i].numTeams > 1) ?
+                    (<td key={i}>Multiple Teams</td>)
+                    : (<td key={i}>{item.splits[i].team.name}</td>)
+                );
               })}
               {response2.stats?.map((item, i) => {
-                return <td key={i}>{item.splits[i].league.name}</td>;
+                  return (
+                    (item.splits[i].numTeams > 1) ?
+                      (<td key={i}>Multiple Teams</td>)
+                      : (<td key={i}>{item.splits[i].league.name}</td>)
+                );
               })}
               {response2.stats?.map((item, i) => {
                 return <td key={i}>{item.splits[i].stat.gamesPlayed}</td>;
