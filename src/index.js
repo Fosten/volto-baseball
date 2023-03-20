@@ -13,12 +13,12 @@ export default function applyConfig(config) {
   config.blocks = {
     ...config.blocks,
     initialBlocks: {
+      ...config.blocks.initialBlocks,
       "playercard": [ 'playerinfo', 'playerstats', 'text' ]
     },
     blocksConfig: {
       ...config.blocks.blocksConfig,
-      ...customBlocks,
-      ...config.blocks.initialBlocks,
+      ...customBlocks
     },
   }
   return config;
