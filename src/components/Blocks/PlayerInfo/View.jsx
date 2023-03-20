@@ -34,14 +34,24 @@ const View = (props) => {
 
   return (
     <div className="container">
-      <h2>Player Info</h2>
+      <div className="playerinfo">
       {response.people?.map((item, i) => {
-        return <p key={i}><strong>Primary Position:</strong> {item.primaryPosition.name}<br />
-        <strong>Born:</strong> {item.birthDate} in {item.birthCity}, {item.birthCountry} (Age: {item.currentAge})<br />
-        <strong>Bats/Throws:</strong> {item.batSide.description}/{item.pitchHand.description}<br />
-        <strong>Height, Weight:</strong> {item.height}, {item.weight}<br />
-        <strong>Debut Date:</strong> {item.mlbDebutDate}<br /><br /></p>;
+        return <div key={i}>
+         <div>{item.primaryPosition.name}</div>
+         <div>Age: {item.currentAge}</div>
+         <div>{item.height}, {item.weight}</div>
+         <div>Bats/Throws: {item.batSide.code}/{item.pitchHand.code}</div>
+        </div>;
       })}
+      </div>
+      <div className="playerdates">
+      {response.people?.map((item, i) => {
+        return <div key={i}>
+          <strong>Born:</strong> {item.birthDate} in {item.birthCity}, {item.birthCountry}<br />
+          <strong>Debut Date:</strong> {item.mlbDebutDate}<br /><br />
+        </div>
+      })}
+      </div>
     </div>
   );
 };
