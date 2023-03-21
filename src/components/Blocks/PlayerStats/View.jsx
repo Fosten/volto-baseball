@@ -18,11 +18,13 @@ const View = (props) => {
   const { content } = props;
   const [response2, setState] = useState({});
   const [hitpitch, setState2] = useState('null');
+  const statyears = ["2022", "2021", "2020"];
+  for (let statyear of statyears) {
     async function useResponse2() {
     try {
       const response2 = await mlbStats.getPerson({
         pathParams: {
-          personId: `${content.playerID}/stats?stats=statsSingleSeason&season=2022`,
+          personId: `${content.playerID}/stats?stats=statsSingleSeason&season=${statyear}`,
         },
       })
         setState(response2.data)
@@ -33,11 +35,12 @@ const View = (props) => {
       // eslint-disable-next-line no-console
       console.log(err);
     }
-}
+    }
 
   useEffect(() => {
     useResponse2();
   }, []);
+  }
 
   const renderthis = () => {
     return ((hitpitch === 'hitting') ?
