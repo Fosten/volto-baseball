@@ -10,7 +10,17 @@ import PropTypes from 'prop-types';
 
 const MLBStatsAPI = require('@asbeane/mlb-stats-api');
 const mlbStats = new MLBStatsAPI();
-const statyears = ["2022", "2021", "2020"];
+function generateArrayOfYears() {
+  var max = new Date().getFullYear()
+  var min = max - 21
+  var years = []
+
+  for (var i = min; i <= max; i++) {
+    years.push(i)
+  }
+  return years
+}
+const statyears = generateArrayOfYears();
 const hitcats = ["Year", "Team", "League", "AB", "H", "R", "HR", "RBI", "SB", "AVG", "OBP", "SLG", "OPS"];
 const pitchcats = ["Year", "Team", "League", "GP", "IP", "H", "ER", "BB", "K", "W", "SV", "ERA", "WHIP"];
 
