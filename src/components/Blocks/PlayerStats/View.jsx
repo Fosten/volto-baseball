@@ -26,7 +26,8 @@ const View = (props) => {
 
   for (let statyear of statyears) {
     async function useResponse2() {
-    try {
+      if (window.localStorage.getItem(statyear)) {localStorage.removeItem(statyear)};
+      try {
       const response2 = await mlbStats.getPerson({
         pathParams: {
           personId: `${content.playerID}/stats?stats=statsSingleSeason&season=${statyear}`,
@@ -35,6 +36,7 @@ const View = (props) => {
         setState(response2.data)
       const hitpitch = response2.data.stats[0].group.displayName
       setState2(hitpitch)
+      window.localStorage.setItem(statyear, JSON.stringify(response2));
     }
     catch (err) {
       // eslint-disable-next-line no-console
@@ -60,11 +62,13 @@ const View = (props) => {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            <Table.Row>
-            {response2.stats?.map((item, i) => {
+          {statyears.map(function(statyear, index) {
+                let newObject = JSON.parse(localStorage.getItem(statyear));
+                if (newObject) {return <Table.Row key={index}>
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].season}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
                 if (item.splits[i].numTeams > 1)
                   {
                     return <td key={i}>{item.splits[1].team.name}/{item.splits[2].team.name}</td>
@@ -74,7 +78,7 @@ const View = (props) => {
                     return <td key={i}>{item.splits[i].team.name}</td>
                   }
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
                 if (item.splits[i].numTeams > 1)
                 {
                   if (item.splits[1].league.name = "National League")
@@ -91,37 +95,38 @@ const View = (props) => {
                   return <td key={i}>{item.splits[i].league.name}</td>
                 }
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.atBats}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.hits}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.runs}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.homeRuns}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.rbi}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.stolenBases}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.avg}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.obp}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.slg}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.ops}</td>;
             })}
-            </Table.Row>
+            </Table.Row>}
+              })}
           </Table.Body>
         </Table>
       </div>
@@ -139,11 +144,13 @@ const View = (props) => {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            <Table.Row>
-              {response2.stats?.map((item, i) => {
+          {statyears.map(function(statyear, index) {
+                let newObject = JSON.parse(localStorage.getItem(statyear));
+                if (newObject) {return <Table.Row key={index}>
+              {newObject.data.stats?.map((item, i) => {
                 return <td key={i}>{item.splits[i].season}</td>;
               })}
-              {response2.stats?.map((item, i) => {
+              {newObject.data.stats?.map((item, i) => {
                   if (item.splits[i].numTeams > 1)
                     {
                       return <td key={i}>{item.splits[1].team.name}/{item.splits[2].team.name}</td>
@@ -153,7 +160,7 @@ const View = (props) => {
                       return <td key={i}>{item.splits[i].team.name}</td>
                     }
               })}
-              {response2.stats?.map((item, i) => {
+              {newObject.data.stats?.map((item, i) => {
                   if (item.splits[i].numTeams > 1)
                   {
                     if (item.splits[1].league.name = "National League")
@@ -170,37 +177,38 @@ const View = (props) => {
                     return <td key={i}>{item.splits[i].league.name}</td>
                   }
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.gamesPlayed}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.inningsPitched}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.hits}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.earnedRuns}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.baseOnBalls}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.strikeOuts}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.wins}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.saves}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.era}</td>;
             })}
-            {response2.stats?.map((item, i) => {
+            {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.whip}</td>;
             })}
-            </Table.Row>
+            </Table.Row>}
+              })}
           </Table.Body>
         </Table>
       </div>
