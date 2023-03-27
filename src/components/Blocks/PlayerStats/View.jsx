@@ -12,7 +12,7 @@ const MLBStatsAPI = require('@asbeane/mlb-stats-api');
 const mlbStats = new MLBStatsAPI();
 function generateArrayOfYears() {
   var max = new Date().getFullYear()
-  var min = max - 21
+  var min = max - 20
   var years = []
 
   for (var i = min; i <= max; i++) {
@@ -44,7 +44,7 @@ const View = (props) => {
         },
       })
         setState(response2.data)
-      const hitpitch = response2.data.stats[0].group.displayName
+      const hitpitch = response2.data.stats[0].group?.displayName
       setState2(hitpitch)
       window.localStorage.setItem(statyear, JSON.stringify(response2));
     }
@@ -62,7 +62,8 @@ const View = (props) => {
   const renderthis = () => {
     return ((hitpitch === 'hitting') ?
     (
-      <div className="playerstats">
+      <div className="careerstats">
+        <h2>Career Hitting Stats</h2>
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -72,9 +73,9 @@ const View = (props) => {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-          {statyears.map(function(statyear, index) {
+          {statyears.map(function(statyear, index2) {
                 let newObject = JSON.parse(localStorage.getItem(statyear));
-                if (newObject) {return <Table.Row key={index}>
+                if (newObject) {return <Table.Row key={index2}>
             {newObject.data.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].season}</td>;
             })}
@@ -144,7 +145,8 @@ const View = (props) => {
     :
     (hitpitch === 'pitching') ? 
     (
-      <div className="playerstats">
+      <div className="careerstats">
+        <h2>Career Pitching Stats</h2>
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -154,9 +156,9 @@ const View = (props) => {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-          {statyears.map(function(statyear, index) {
+          {statyears.map(function(statyear, index2) {
                 let newObject = JSON.parse(localStorage.getItem(statyear));
-                if (newObject) {return <Table.Row key={index}>
+                if (newObject) {return <Table.Row key={index2}>
               {newObject.data.stats?.map((item, i) => {
                 return <td key={i}>{item.splits[i].season}</td>;
               })}
