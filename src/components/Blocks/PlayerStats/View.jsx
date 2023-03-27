@@ -10,6 +10,9 @@ import PropTypes from 'prop-types';
 
 const MLBStatsAPI = require('@asbeane/mlb-stats-api');
 const mlbStats = new MLBStatsAPI();
+const statyears = ["2022", "2021", "2020"];
+const hitcats = ["Year", "Team", "League", "AB", "H", "R", "HR", "RBI", "SB", "AVG", "OBP", "SLG", "OPS"];
+const pitchcats = ["Year", "Team", "League", "GP", "IP", "H", "ER", "BB", "K", "W", "SV", "ERA", "WHIP"];
 
 /**
  * View description block class.
@@ -20,7 +23,7 @@ const View = (props) => {
   const { content } = props;
   const [response2, setState] = useState({});
   const [hitpitch, setState2] = useState('null');
-  const statyears = ["2022", "2021", "2020"];
+
   for (let statyear of statyears) {
     async function useResponse2() {
     try {
@@ -51,19 +54,9 @@ const View = (props) => {
         <Table celled>
           <Table.Header>
             <Table.Row>
-            <th>Year</th>
-            <th>Team</th>
-            <th>League</th>
-            <th>AB</th>
-            <th>H</th>
-            <th>R</th>
-            <th>HR</th>
-            <th>RBI</th>
-            <th>SB</th>
-            <th>AVG</th>
-            <th>OBP</th>
-            <th>SLG</th>
-            <th>OPS</th>
+            {hitcats.map(function(hitcat, index) {
+                return <th key={index}>{hitcat}</th>
+              })}
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -140,19 +133,9 @@ const View = (props) => {
         <Table celled>
           <Table.Header>
             <Table.Row>
-            <th>Year</th>
-            <th>Team</th>
-            <th>League</th>
-            <th>GP</th>
-            <th>IP</th>
-            <th>H</th>
-            <th>ER</th>
-            <th>BB</th>
-            <th>K</th>
-            <th>W</th>
-            <th>SV</th>
-            <th>ERA</th>
-            <th>WHIP</th>
+            {pitchcats.map(function(pitchcat, index) {
+                return <th key={index}>{pitchcat}</th>
+              })}
             </Table.Row>
           </Table.Header>
           <Table.Body>
