@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Table } from 'semantic-ui-react';
+
 /**
  * View description block.
  * @module components/manage/Blocks/Description/View
@@ -46,9 +48,9 @@ const View = (props) => {
     return ((hitpitch === 'hitting') ?
     (
       <div className="playerstats">
-        <table border="1">
-          <thead>
-            <tr>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
             <th>Year</th>
             <th>Team</th>
             <th>League</th>
@@ -62,9 +64,10 @@ const View = (props) => {
             <th>OBP</th>
             <th>SLG</th>
             <th>OPS</th>
-          </tr>
-          </thead>
-          <tbody><tr>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            <Table.Row>
             {response2.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].season}</td>;
             })}
@@ -125,18 +128,18 @@ const View = (props) => {
             {response2.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.ops}</td>;
             })}
-          </tr>
-          </tbody>
-        </table>
+            </Table.Row>
+          </Table.Body>
+        </Table>
       </div>
     ) 
     :
     (hitpitch === 'pitching') ? 
     (
       <div className="playerstats">
-        <table border="1">
-          <thead>
-            <tr>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
             <th>Year</th>
             <th>Team</th>
             <th>League</th>
@@ -150,10 +153,10 @@ const View = (props) => {
             <th>SV</th>
             <th>ERA</th>
             <th>WHIP</th>
-          </tr>
-          </thead>
-          <tbody>
-            <tr>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            <Table.Row>
               {response2.stats?.map((item, i) => {
                 return <td key={i}>{item.splits[i].season}</td>;
               })}
@@ -214,9 +217,9 @@ const View = (props) => {
             {response2.stats?.map((item, i) => {
               return <td key={i}>{item.splits[i].stat.whip}</td>;
             })}
-          </tr>
-          </tbody>
-        </table>
+            </Table.Row>
+          </Table.Body>
+        </Table>
       </div>
     )
     :
