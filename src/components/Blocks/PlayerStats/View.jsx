@@ -92,10 +92,10 @@ const View = (props) => {
             {newObject.data.stats?.map((item, i) => {
                 if (item.splits[i].numTeams > 1)
                 {
-                  if (item.splits[1].league.name = "National League")
+                  if (item.splits[1].league.name === "National League")
                   {var league1 = 'NL'}
                   else {var league1 = 'AL'}
-                  if (item.splits[2].league.name = "National League")
+                  if (item.splits[2].league.name === "National League")
                   {var league2 = 'NL'}
                   else {var league2 = 'AL'}
 
@@ -175,10 +175,10 @@ const View = (props) => {
               {newObject.data.stats?.map((item, i) => {
                   if (item.splits[i].numTeams > 1)
                   {
-                    if (item.splits[1].league.name = "National League")
+                    if (item.splits[1].league.name === "National League")
                     {var league1 = 'NL'}
                     else {var league1 = 'AL'}
-                    if (item.splits[2].league.name = "National League")
+                    if (item.splits[2].league.name === "National League")
                     {var league2 = 'NL'}
                     else {var league2 = 'AL'}
 
