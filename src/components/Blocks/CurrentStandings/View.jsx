@@ -34,8 +34,8 @@ const View = (props) => {
 
   return (
     <div className="container">
+      <h2>Current Standings</h2>
       <div className="todaygames">
-        <h2>Current Standings</h2>
           {response5.records?.map((item, i) => {
             return (<Table celled key={i}>
           <Table.Header>

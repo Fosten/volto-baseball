@@ -20,7 +20,7 @@ const View = (props) => {
   async function useResponse4() {
       try {
       const response4 = await axios.get(
-        `https://statsapi.mlb.com/api/v1/schedule?&sportId=1&date=03/27/2023`,
+        `https://statsapi.mlb.com/api/v1/schedule?&sportId=1`,
       )
       setState(response4.data);
       const numGames = response4.data.totalGames;
@@ -34,17 +34,20 @@ const View = (props) => {
   useResponse4();
 }, []);
 
-  return (
+    return (
     <div className="container">
+      <h2>Today's Games</h2>
       <div className="todaygames">
-        <h2>Today's Games</h2>
-      {response4.dates?.map((item, i) => {
-          return (
-          <div key={i}>
-            <div>{item.games[i].teams.away.team.name} {item.games[i].teams.away.score}
-            &nbsp;@ {item.games[i].teams.home.team.name} {item.games[i].teams.home.score}
-            </div>
-      </div>)})}
+        {response4.dates?.map((item) => (
+          <p key ={item}>
+            {item.games?.map((detail) => {
+              const gameDatestr = detail.gameDate;
+              const gameTime = gameDatestr.substring(11,16); 
+              return (<div key={detail}>{detail.teams.away.team.name} <strong>{detail.teams.away.score}</strong>
+              &nbsp;@ {detail.teams.home.team.name} <strong>{detail.teams.home.score}</strong>
+              &nbsp;| {gameTime} UTC - {detail.status.detailedState}
+              </div>)})}
+          </p>))}
       </div>
     </div>
   );
