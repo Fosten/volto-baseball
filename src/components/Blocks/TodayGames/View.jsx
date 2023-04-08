@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Table } from 'semantic-ui-react';
 import axios from 'axios';
 
 /**
@@ -38,16 +39,36 @@ const View = (props) => {
     <div className="container">
       <h2>Today's Games</h2>
       <div className="todaygames">
-        {response4.dates?.map((item) => (
-          <p key ={item}>
-            {item.games?.map((detail) => {
-              const gameDatestr = detail.gameDate;
-              const gameTime = gameDatestr.substring(11,16); 
-              return (<div key={detail}>{detail.teams.away.team.name} <strong>{detail.teams.away.score}</strong>
-              &nbsp;@ {detail.teams.home.team.name} <strong>{detail.teams.home.score}</strong>
-              &nbsp;| {gameTime} UTC - {detail.status.detailedState}
-              </div>)})}
-          </p>))}
+      <Table celled>
+        <Table.Header>
+        <Table.Row>
+          <th>Away Team</th>
+          <th>Score</th>
+          <th>Home Team</th>
+          <th>Score</th>
+          <th>Start Time</th>
+          <th>Game Status</th>
+        </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {response4.dates?.map((item) => (
+              item.games?.map((detail) => {
+                const gameDatestr = detail.gameDate;
+                const gameTime = gameDatestr.substring(11,16); 
+                return (
+                  <Table.Row key={item}>
+                  <td key={detail}>{detail.teams.away.team.name}</td>
+                  <td key={detail}><strong>{detail.teams.away.score}</strong></td>
+                  <td key={detail}>@ {detail.teams.home.team.name}</td>
+                  <td key={detail}><strong>{detail.teams.home.score}</strong></td>
+                  <td key={detail}>{gameTime} UTC</td>
+                  <td key={detail}>{detail.status.detailedState}</td>
+                  </Table.Row>
+                )
+              })
+          ))}
+        </Table.Body>
+      </Table>
       </div>
     </div>
   );
