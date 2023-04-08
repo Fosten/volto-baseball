@@ -48,8 +48,8 @@ const View = (props) => {
   const renderthis = () => {
     return ((hitpitch === 'hitting') ?
     (
-      <div className="singleseasonstats">
-        <h2>2022 Hitting Stats</h2> 
+      <div className="seasonstats">
+        <h2>2023 Hitting Stats</h2> 
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -128,8 +128,8 @@ const View = (props) => {
     :
     (hitpitch === 'pitching') ? 
     (
-      <div className="singleseasonstats">
-        <h2>2022 Pitching Stats</h2> 
+      <div className="seasonstats">
+        <h2>2023 Pitching Stats</h2> 
         <Table celled>
           <Table.Header>
             <Table.Row>

@@ -1,9 +1,9 @@
 import PlayerInfoView from '@Fosten/volto-baseball/components/Blocks/PlayerInfo/View';
 import PlayerInfoEdit from '@Fosten/volto-baseball/components/Blocks/PlayerInfo/Edit';
-import PlayerStatsView from '@Fosten/volto-baseball/components/Blocks/PlayerStats/View';
-import PlayerStatsEdit from '@Fosten/volto-baseball/components/Blocks/PlayerStats/Edit';
-import SingleSeasonStatsView from '@Fosten/volto-baseball/components/Blocks/SingleSeasonStats/View';
-import SingleSeasonStatsEdit from '@Fosten/volto-baseball/components/Blocks/SingleSeasonStats/Edit';
+import CareerStatsView from '@Fosten/volto-baseball/components/Blocks/CareerStats/View';
+import CareerStatsEdit from '@Fosten/volto-baseball/components/Blocks/CareerStats/Edit';
+import SeasonStatsView from '@Fosten/volto-baseball/components/Blocks/SeasonStats/View';
+import SeasonStatsEdit from '@Fosten/volto-baseball/components/Blocks/SeasonStats/Edit';
 import CurrentStandingsView from '@Fosten/volto-baseball/components/Blocks/CurrentStandings/View';
 import CurrentStandingsEdit from '@Fosten/volto-baseball/components/Blocks/CurrentStandings/Edit';
 import TodayGamesView from '@Fosten/volto-baseball/components/Blocks/TodayGames/View';
@@ -26,11 +26,11 @@ const customBlocks = {
       view: [],
     },
   },
-  playerstats: {
-    id: 'playerstats',
-    title: 'Player Stats',
-    edit: PlayerStatsEdit,
-    view: PlayerStatsView,
+  careerstats: {
+    id: 'careerstats',
+    title: 'Career Stats',
+    edit: CareerStatsEdit,
+    view: CareerStatsView,
     icon: icon,
     group: 'text',
     restricted: false,
@@ -41,11 +41,11 @@ const customBlocks = {
       view: [],
     },
   },
-  singleseasonstats: {
-    id: 'singleseasonstats',
-    title: 'Single Season Stats',
-    edit: SingleSeasonStatsEdit,
-    view: SingleSeasonStatsView,
+  seasonstats: {
+    id: 'seasonstats',
+    title: 'Season Stats',
+    edit: SeasonStatsEdit,
+    view: SeasonStatsView,
     icon: icon,
     group: 'text',
     restricted: false,

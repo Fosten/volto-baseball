@@ -15,7 +15,7 @@ export default function applyConfig(config) {
     ...config.blocks,
     initialBlocks: {
       ...config.blocks.initialBlocks,
-      "playercard": [ 'playerinfo', 'singleseasonstats', 'playerstats', 'text' ]
+      "playercard": [ 'playerinfo', 'seasonstats', 'careerstats', 'text' ]
     },
     blocksConfig: {
       ...config.blocks.blocksConfig,
