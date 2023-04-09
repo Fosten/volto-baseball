@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Table } from 'semantic-ui-react';
 import axios from 'axios';
 
@@ -35,36 +35,196 @@ const View = (props) => {
   return (
     <div className="container">
       <h2>Current Standings</h2>
-      <div className="todaygames">
+      <div className="currentstandings">
+        <div className="americanleague">
+        <h3>American League</h3>
+        <Table celled>
+        <Table.Header>
+          <Table.Row>
           {response5.records?.map((item, i) => {
-            return (<Table celled key={i}>
-          <Table.Header>
-            <Table.Row>
-            <th>{item.division.name}</th>
+            if (item.league.id == 103) {
+            return (
+              <Fragment key={i}>
+              <th>{item.division.nameShort}</th>
+              <th>W-L</th>
+              <th>PCT</th>
+              <th>GB</th>
+              <th>STK</th>
+              </Fragment>
+            )}
+          })}
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+          {response5.records?.map((item, i) => {
+              if (item.league.id == 103) {
+                return (
+                  <Fragment key={i}>
+                  <td>{item.teamRecords[0].team.name}</td>
+                  <td>{item.teamRecords[0].leagueRecord.wins}-{item.teamRecords[0].leagueRecord.losses}</td>
+                  <td>{item.teamRecords[0].leagueRecord.pct}</td>
+                  <td>{item.teamRecords[0].gamesBack}</td>
+                  <td>{item.teamRecords[0].streak.streakCode}</td>
+                  </Fragment>
+                )
+              }})}
             </Table.Row>
-          </Table.Header>
-          <Table.Body>
+            <Table.Row>
+          {response5.records?.map((item, i) => {
+              if (item.league.id == 103) {
+                return (
+                  <Fragment key={i}>
+                  <td>{item.teamRecords[1].team.name}</td>
+                  <td>{item.teamRecords[1].leagueRecord.wins}-{item.teamRecords[1].leagueRecord.losses}</td>
+                  <td>{item.teamRecords[1].leagueRecord.pct}</td>
+                  <td>{item.teamRecords[1].gamesBack}</td>
+                  <td>{item.teamRecords[1].streak.streakCode}</td>
+                  </Fragment>
+                )
+              }})}
+            </Table.Row>
+            <Table.Row>
+          {response5.records?.map((item, i) => {
+              if (item.league.id == 103) {
+                return (
+                  <Fragment key={i}>
+                  <td>{item.teamRecords[2].team.name}</td>
+                  <td>{item.teamRecords[2].leagueRecord.wins}-{item.teamRecords[2].leagueRecord.losses}</td>
+                  <td>{item.teamRecords[2].leagueRecord.pct}</td>
+                  <td>{item.teamRecords[2].gamesBack}</td>
+                  <td>{item.teamRecords[2].streak.streakCode}</td>
+                  </Fragment>
+                )
+              }})}
+            </Table.Row>
+            <Table.Row>
+          {response5.records?.map((item, i) => {
+              if (item.league.id == 103) {
+                return (
+                  <Fragment key={i}>
+                  <td>{item.teamRecords[3].team.name}</td>
+                  <td>{item.teamRecords[3].leagueRecord.wins}-{item.teamRecords[3].leagueRecord.losses}</td>
+                  <td>{item.teamRecords[3].leagueRecord.pct}</td>
+                  <td>{item.teamRecords[3].gamesBack}</td>
+                  <td>{item.teamRecords[3].streak.streakCode}</td>
+                  </Fragment>
+                )
+              }})}
+            </Table.Row>
+            <Table.Row>
+          {response5.records?.map((item, i) => {
+              if (item.league.id == 103) {
+                return (
+                  <Fragment key={i}>
+                  <td>{item.teamRecords[4].team.name}</td>
+                  <td>{item.teamRecords[4].leagueRecord.wins}-{item.teamRecords[4].leagueRecord.losses}</td>
+                  <td>{item.teamRecords[4].leagueRecord.pct}</td>
+                  <td>{item.teamRecords[4].gamesBack}</td>
+                  <td>{item.teamRecords[4].streak.streakCode}</td>
+                  </Fragment>
+                )
+              }})}
+            </Table.Row>
+        </Table.Body>
+        </Table>
+        </div>
+        <div className="nationalleague">
+        <h3>National League</h3>
+        <Table celled>
+        <Table.Header>
           <Table.Row>
-          <td>{item.teamRecords[0].team.name} ({item.teamRecords[0].leagueRecord.wins} - {item.teamRecords[0].leagueRecord.losses})</td>
+          {response5.records?.map((item, i) => {
+            if (item.league.id == 104) {
+            return (
+              <Fragment key={i}>
+              <th>{item.division.nameShort}</th>
+              <th>W-L</th>
+              <th>PCT</th>
+              <th>GB</th>
+              <th>STK</th>
+              </Fragment>
+            )}
+          })}
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+        <Table.Row>
+          {response5.records?.map((item, i) => {
+            if (item.league.id == 104) {
+              return (
+                <Fragment key={i}>
+                <td>{item.teamRecords[0].team.name}</td>
+                <td>{item.teamRecords[0].leagueRecord.wins}-{item.teamRecords[0].leagueRecord.losses}</td>
+                <td>{item.teamRecords[0].leagueRecord.pct}</td>
+                <td>{item.teamRecords[0].gamesBack}</td>
+                <td>{item.teamRecords[0].streak.streakCode}</td>
+                </Fragment>
+              )
+            }})}
           </Table.Row>
           <Table.Row>
-          <td>{item.teamRecords[1].team.name} ({item.teamRecords[1].leagueRecord.wins} - {item.teamRecords[0].leagueRecord.losses})</td>
+          {response5.records?.map((item, i) => {
+            if (item.league.id == 104) {
+              return (
+                <Fragment key={i}>
+                <td>{item.teamRecords[1].team.name}</td>
+                <td>{item.teamRecords[1].leagueRecord.wins}-{item.teamRecords[1].leagueRecord.losses}</td>
+                <td>{item.teamRecords[1].leagueRecord.pct}</td>
+                <td>{item.teamRecords[1].gamesBack}</td>
+                <td>{item.teamRecords[1].streak.streakCode}</td>
+                </Fragment>
+              )
+            }})}
           </Table.Row>
           <Table.Row>
-          <td>{item.teamRecords[2].team.name} ({item.teamRecords[2].leagueRecord.wins} - {item.teamRecords[0].leagueRecord.losses})</td>
+          {response5.records?.map((item, i) => {
+            if (item.league.id == 104) {
+              return (
+                <Fragment key={i}>
+                <td>{item.teamRecords[2].team.name}</td>
+                <td>{item.teamRecords[2].leagueRecord.wins}-{item.teamRecords[2].leagueRecord.losses}</td>
+                <td>{item.teamRecords[2].leagueRecord.pct}</td>
+                <td>{item.teamRecords[2].gamesBack}</td>
+                <td>{item.teamRecords[2].streak.streakCode}</td>
+                </Fragment>
+              )
+            }})}
           </Table.Row>
           <Table.Row>
-          <td>{item.teamRecords[3].team.name} ({item.teamRecords[3].leagueRecord.wins} - {item.teamRecords[0].leagueRecord.losses})</td>
+          {response5.records?.map((item, i) => {
+            if (item.league.id == 104) {
+              return (
+                <Fragment key={i}>
+                <td>{item.teamRecords[3].team.name}</td>
+                <td>{item.teamRecords[3].leagueRecord.wins}-{item.teamRecords[3].leagueRecord.losses}</td>
+                <td>{item.teamRecords[3].leagueRecord.pct}</td>
+                <td>{item.teamRecords[3].gamesBack}</td>
+                <td>{item.teamRecords[3].streak.streakCode}</td>
+                </Fragment>
+              )
+            }})}
           </Table.Row>
           <Table.Row>
-          <td>{item.teamRecords[4].team.name} ({item.teamRecords[4].leagueRecord.wins} - {item.teamRecords[0].leagueRecord.losses})</td>
+          {response5.records?.map((item, i) => {
+            if (item.league.id == 104) {
+              return (
+                <Fragment key={i}>
+                <td>{item.teamRecords[4].team.name}</td>
+                <td>{item.teamRecords[4].leagueRecord.wins}-{item.teamRecords[4].leagueRecord.losses}</td>
+                <td>{item.teamRecords[4].leagueRecord.pct}</td>
+                <td>{item.teamRecords[4].gamesBack}</td>
+                <td>{item.teamRecords[4].streak.streakCode}</td>
+                </Fragment>
+              )
+            }})}
           </Table.Row>
-          </Table.Body>
-          </Table>)
-      })}
+        </Table.Body>
+        </Table>
+        </div>
       </div>
     </div>
-  );
+  )    
 };
 
 /**

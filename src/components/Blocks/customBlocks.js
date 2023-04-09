@@ -73,7 +73,7 @@ const customBlocks = {
   },
   currentstandings: {
     id: 'currentstandings',
-    title: 'CurrentStandings',
+    title: 'Current Standings',
     edit: CurrentStandingsEdit,
     view: CurrentStandingsView,
     icon: icon,
