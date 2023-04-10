@@ -7,7 +7,7 @@ const PlayerCardView = (props) => {
   const { content } = props;
   return (
     <Container>
-    <div id="page-document">
+      <div id="page-document">
         <Helmet title={content.title} />
         <h1 className="documentFirstHeading">{content.title}</h1>
         <Segment clearing>
@@ -15,7 +15,7 @@ const PlayerCardView = (props) => {
             <RenderBlocks content={content} />
           ) : (
             <div></div>
-            )}
+          )}
           <Image
             src={flattenToAppURL(content.image?.scales?.preview?.download)}
             size="small"

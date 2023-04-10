@@ -86,5 +86,5 @@ const customBlocks = {
       view: [],
     },
   },
-}
+};
 export default customBlocks;

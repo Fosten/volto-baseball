@@ -1,6 +1,6 @@
 import '@plone/volto/config';
 import { PlayerCardView } from '@Fosten/volto-baseball/components/';
-import customBlocks from '@Fosten/volto-baseball/components/Blocks/customBlocks'
+import customBlocks from '@Fosten/volto-baseball/components/Blocks/customBlocks';
 import './theme/main.less';
 
 export default function applyConfig(config) {
@@ -15,12 +15,12 @@ export default function applyConfig(config) {
     ...config.blocks,
     initialBlocks: {
       ...config.blocks.initialBlocks,
-      "playercard": [ 'playerinfo', 'seasonstats', 'careerstats', 'text' ]
+      playercard: ['playerinfo', 'seasonstats', 'careerstats', 'text'],
     },
     blocksConfig: {
       ...config.blocks.blocksConfig,
-      ...customBlocks
+      ...customBlocks,
     },
-  }
+  };
   return config;
 }

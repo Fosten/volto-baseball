@@ -26,31 +26,43 @@ const View = (props) => {
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);
-    } 
+    }
   }
   useEffect(() => {
-  useResponse();
-}, []);
+    useResponse();
+  }, []);
 
   return (
     <div className="container">
       <div className="playerinfo">
-      {response.people?.map((item, i) => {
-        return <div key={i}>
-         <div>{item.primaryPosition.name}</div>
-         <div>Age: {item.currentAge}</div>
-         <div>{item.height}, {item.weight}</div>
-         <div>Bats/Throws: {item.batSide.code}/{item.pitchHand.code}</div>
-        </div>;
-      })}
+        {response.people?.map((item, i) => {
+          return (
+            <div key={i}>
+              <div>{item.primaryPosition.name}</div>
+              <div>Age: {item.currentAge}</div>
+              <div>
+                {item.height}, {item.weight}
+              </div>
+              <div>
+                Bats/Throws: {item.batSide.code}/{item.pitchHand.code}
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div className="playerdates">
-      {response.people?.map((item, i) => {
-        return <div key={i}>
-          <strong>Born:</strong> {item.birthDate} in {item.birthCity}, {item.birthCountry}<br />
-          <strong>Debut Date:</strong> {item.mlbDebutDate}<br /><br />
-        </div>
-      })}
+        {response.people?.map((item, i) => {
+          return (
+            <div key={i}>
+              <strong>Born:</strong> {item.birthDate} in {item.birthCity},{' '}
+              {item.birthCountry}
+              <br />
+              <strong>Debut Date:</strong> {item.mlbDebutDate}
+              <br />
+              <br />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
