@@ -52,6 +52,8 @@ const View = (props) => {
                         <th>STK</th>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -72,6 +74,8 @@ const View = (props) => {
                         <td>{item.teamRecords[0].streak.streakCode}</td>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -90,6 +94,8 @@ const View = (props) => {
                         <td>{item.teamRecords[1].streak.streakCode}</td>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -108,6 +114,8 @@ const View = (props) => {
                         <td>{item.teamRecords[2].streak.streakCode}</td>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -126,6 +134,8 @@ const View = (props) => {
                         <td>{item.teamRecords[3].streak.streakCode}</td>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -144,6 +154,8 @@ const View = (props) => {
                         <td>{item.teamRecords[4].streak.streakCode}</td>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -166,6 +178,8 @@ const View = (props) => {
                         <th>STK</th>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -186,6 +200,8 @@ const View = (props) => {
                         <td>{item.teamRecords[0].streak.streakCode}</td>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -204,6 +220,8 @@ const View = (props) => {
                         <td>{item.teamRecords[1].streak.streakCode}</td>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -222,6 +240,8 @@ const View = (props) => {
                         <td>{item.teamRecords[2].streak.streakCode}</td>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -240,6 +260,8 @@ const View = (props) => {
                         <td>{item.teamRecords[3].streak.streakCode}</td>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
@@ -258,6 +280,8 @@ const View = (props) => {
                         <td>{item.teamRecords[4].streak.streakCode}</td>
                       </Fragment>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </Table.Row>
