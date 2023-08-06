@@ -126,12 +126,12 @@ const View = (props) => {
                         if (item.splits[1].league.name === 'National League') {
                           var league1 = 'NL';
                         } else {
-                          var league1 = 'AL';
+                          league1 = 'AL';
                         }
                         if (item.splits[2].league.name === 'National League') {
                           var league2 = 'NL';
                         } else {
-                          var league2 = 'AL';
+                          league2 = 'AL';
                         }
 
                         return (
@@ -217,12 +217,12 @@ const View = (props) => {
                         if (item.splits[1].league.name === 'National League') {
                           var league1 = 'NL';
                         } else {
-                          var league1 = 'AL';
+                          league1 = 'AL';
                         }
                         if (item.splits[2].league.name === 'National League') {
                           var league2 = 'NL';
                         } else {
-                          var league2 = 'AL';
+                          league2 = 'AL';
                         }
 
                         return (
