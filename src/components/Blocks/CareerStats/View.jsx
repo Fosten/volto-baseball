@@ -175,6 +175,8 @@ const View = (props) => {
                     })}
                   </Table.Row>
                 );
+              } else {
+                return null;
               }
             })}
           </Table.Body>
@@ -268,6 +270,8 @@ const View = (props) => {
                     })}
                   </Table.Row>
                 );
+              } else {
+                return null;
               }
             })}
           </Table.Body>
