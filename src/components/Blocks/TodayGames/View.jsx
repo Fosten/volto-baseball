@@ -22,8 +22,6 @@ const View = (props) => {
         `https://statsapi.mlb.com/api/v1/schedule?&sportId=1`,
       );
       setState(response4.data);
-      const numGames = response4.data.totalGames;
-      setState4(numGames);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);
