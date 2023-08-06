@@ -15,7 +15,6 @@ import PropTypes from 'prop-types';
  * @extends Component
  */
 const View = (props) => {
-  const { content } = props;
   const [response5, setState] = useState({});
   async function myResponse5() {
     try {
