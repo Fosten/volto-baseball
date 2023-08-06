@@ -15,9 +15,7 @@ import PropTypes from 'prop-types';
  * @extends Component
  */
 const View = (props) => {
-  const { content } = props;
   const [response4, setState] = useState({});
-  const [numGames, setState4] = useState('null');
   async function myResponse4() {
     try {
       const response4 = await axios.get(
