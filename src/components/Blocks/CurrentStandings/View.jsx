@@ -42,7 +42,7 @@ const View = (props) => {
             <Table.Header>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 103) {
+                  if (item.league.id === 103) {
                     return (
                       <Fragment key={i}>
                         <th>{item.division.nameShort}</th>
@@ -59,7 +59,7 @@ const View = (props) => {
             <Table.Body>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 103) {
+                  if (item.league.id === 103) {
                     return (
                       <Fragment key={i}>
                         <td>{item.teamRecords[0].team.name}</td>
@@ -77,7 +77,7 @@ const View = (props) => {
               </Table.Row>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 103) {
+                  if (item.league.id === 103) {
                     return (
                       <Fragment key={i}>
                         <td>{item.teamRecords[1].team.name}</td>
@@ -95,7 +95,7 @@ const View = (props) => {
               </Table.Row>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 103) {
+                  if (item.league.id === 103) {
                     return (
                       <Fragment key={i}>
                         <td>{item.teamRecords[2].team.name}</td>
@@ -113,7 +113,7 @@ const View = (props) => {
               </Table.Row>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 103) {
+                  if (item.league.id === 103) {
                     return (
                       <Fragment key={i}>
                         <td>{item.teamRecords[3].team.name}</td>
@@ -131,7 +131,7 @@ const View = (props) => {
               </Table.Row>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 103) {
+                  if (item.league.id === 103) {
                     return (
                       <Fragment key={i}>
                         <td>{item.teamRecords[4].team.name}</td>
@@ -156,7 +156,7 @@ const View = (props) => {
             <Table.Header>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 104) {
+                  if (item.league.id === 104) {
                     return (
                       <Fragment key={i}>
                         <th>{item.division.nameShort}</th>
@@ -173,7 +173,7 @@ const View = (props) => {
             <Table.Body>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 104) {
+                  if (item.league.id === 104) {
                     return (
                       <Fragment key={i}>
                         <td>{item.teamRecords[0].team.name}</td>
@@ -191,7 +191,7 @@ const View = (props) => {
               </Table.Row>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 104) {
+                  if (item.league.id === 104) {
                     return (
                       <Fragment key={i}>
                         <td>{item.teamRecords[1].team.name}</td>
@@ -209,7 +209,7 @@ const View = (props) => {
               </Table.Row>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 104) {
+                  if (item.league.id === 104) {
                     return (
                       <Fragment key={i}>
                         <td>{item.teamRecords[2].team.name}</td>
@@ -227,7 +227,7 @@ const View = (props) => {
               </Table.Row>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 104) {
+                  if (item.league.id === 104) {
                     return (
                       <Fragment key={i}>
                         <td>{item.teamRecords[3].team.name}</td>
@@ -245,7 +245,7 @@ const View = (props) => {
               </Table.Row>
               <Table.Row>
                 {response5.records?.map((item, i) => {
-                  if (item.league.id == 104) {
+                  if (item.league.id === 104) {
                     return (
                       <Fragment key={i}>
                         <td>{item.teamRecords[4].team.name}</td>
