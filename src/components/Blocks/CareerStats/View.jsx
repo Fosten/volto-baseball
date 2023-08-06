@@ -59,7 +59,6 @@ const pitchcats = [
  */
 const View = (props) => {
   const { content } = props;
-  const [response2, setState] = useState({});
   const [hitpitch, setState2] = useState('null');
 
   for (let statyear of statyears) {
@@ -73,7 +72,6 @@ const View = (props) => {
             personId: `${content.playerID}/stats?stats=statsSingleSeason&season=${statyear}`,
           },
         });
-        setState(response2.data);
         const hitpitch = response2.data.stats[0].group?.displayName;
         setState2(hitpitch);
         window.localStorage.setItem(statyear, JSON.stringify(response2));
