@@ -63,7 +63,7 @@ const View = (props) => {
   const [hitpitch, setState2] = useState('null');
 
   for (let statyear of statyears) {
-    async function useResponse2() {
+    async function myResponse2() {
       if (window.localStorage.getItem(statyear)) {
         localStorage.removeItem(statyear);
       }
@@ -84,7 +84,7 @@ const View = (props) => {
     }
 
     useEffect(() => {
-      useResponse2();
+      myResponse2();
     }, []);
   }
 

@@ -18,7 +18,7 @@ const View = (props) => {
   const { content } = props;
   const [response4, setState] = useState({});
   const [numGames, setState4] = useState('null');
-  async function useResponse4() {
+  async function myResponse4() {
     try {
       const response4 = await axios.get(
         `https://statsapi.mlb.com/api/v1/schedule?&sportId=1`,
@@ -32,7 +32,7 @@ const View = (props) => {
     }
   }
   useEffect(() => {
-    useResponse4();
+    myResponse4();
   }, []);
 
   return (

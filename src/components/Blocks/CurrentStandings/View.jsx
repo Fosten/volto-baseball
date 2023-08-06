@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
 const View = (props) => {
   const { content } = props;
   const [response5, setState] = useState({});
-  async function useResponse5() {
+  async function myResponse5() {
     try {
       const response5 = await axios.get(
         `https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&hydrate=division`,
@@ -29,7 +29,7 @@ const View = (props) => {
     }
   }
   useEffect(() => {
-    useResponse5();
+    myResponse5();
   }, []);
 
   return (

@@ -17,7 +17,7 @@ const mlbStats = new MLBStatsAPI();
 const View = (props) => {
   const { content } = props;
   const [response, setState] = useState({});
-  async function useResponse() {
+  async function myResponse() {
     try {
       const response = await mlbStats.getPerson({
         pathParams: { personId: content.playerID },
@@ -29,7 +29,7 @@ const View = (props) => {
     }
   }
   useEffect(() => {
-    useResponse();
+    myResponse();
   }, []);
 
   return (

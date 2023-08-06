@@ -52,7 +52,7 @@ const View = (props) => {
   const [response3, setState] = useState({});
   const [hitpitch, setState3] = useState('null');
 
-  async function useResponse3() {
+  async function myResponse3() {
     try {
       const response3 = await mlbStats.getPerson({
         pathParams: {
@@ -69,7 +69,7 @@ const View = (props) => {
   }
 
   useEffect(() => {
-    useResponse3();
+    myResponse3();
   }, []);
 
   const renderthis = () => {
