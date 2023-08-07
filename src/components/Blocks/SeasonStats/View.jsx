@@ -9,7 +9,6 @@ import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 const MLBStatsAPI = require('@asbeane/mlb-stats-api');
-const mlbStats = new MLBStatsAPI();
 const statyear = '2023';
 const hitcats = [
   'Year',
@@ -49,28 +48,28 @@ const pitchcats = [
  */
 const View = (props) => {
   const { content } = props;
+  const mlbStats = new MLBStatsAPI();
   const [response3, setState] = useState({});
   const [hitpitch, setState3] = useState('null');
 
-  async function myResponse3() {
-    try {
-      const response3 = await mlbStats.getPerson({
-        pathParams: {
-          personId: `${content.playerID}/stats?stats=statsSingleSeason&season=${statyear}`,
-        },
-      });
-      setState(response3.data);
-      const hitpitch = response3.data.stats[0].group.displayName;
-      setState3(hitpitch);
-    } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log(err);
-    }
-  }
-
   useEffect(() => {
+    async function myResponse3() {
+      try {
+        const response3 = await mlbStats.getPerson({
+          pathParams: {
+            personId: `${content.playerID}/stats?stats=statsSingleSeason&season=${statyear}`,
+          },
+        });
+        setState(response3.data);
+        const hitpitch = response3.data.stats[0].group.displayName;
+        setState3(hitpitch);
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log(err);
+      }
+    }
     myResponse3();
-  }, []);
+  }, [content.playerID, mlbStats]);
 
   const renderthis = () => {
     return hitpitch === 'hitting' ? (

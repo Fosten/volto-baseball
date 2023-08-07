@@ -7,7 +7,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const MLBStatsAPI = require('@asbeane/mlb-stats-api');
-const mlbStats = new MLBStatsAPI();
 
 /**
  * View description block class.
@@ -16,21 +15,23 @@ const mlbStats = new MLBStatsAPI();
  */
 const View = (props) => {
   const { content } = props;
+  const mlbStats = new MLBStatsAPI();
   const [response, setState] = useState({});
-  async function myResponse() {
-    try {
-      const response = await mlbStats.getPerson({
-        pathParams: { personId: content.playerID },
-      });
-      setState(response.data);
-    } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log(err);
-    }
-  }
+
   useEffect(() => {
+    async function myResponse() {
+      try {
+        const response = await mlbStats.getPerson({
+          pathParams: { personId: content.playerID },
+        });
+        setState(response.data);
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log(err);
+      }
+    }
     myResponse();
-  }, []);
+  }, [content.playerID, mlbStats]);
 
   return (
     <div className="container">
