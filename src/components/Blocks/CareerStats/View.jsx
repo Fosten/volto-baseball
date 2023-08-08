@@ -60,31 +60,31 @@ const pitchcats = [
 const View = (props) => {
   const { content } = props;
   const [hitpitch, setState2] = useState('null');
+  const [isLoading, setLoading] = useState(true);
 
-  for (let statyear of statyears) {
+  useEffect(() => {
     async function myResponse2() {
-      if (window.localStorage.getItem(statyear)) {
-        localStorage.removeItem(statyear);
+      for (let statyear of statyears) {
+        try {
+          const response2 = await mlbStats.getPerson({
+            pathParams: {
+              personId: `${content.playerID}/stats?stats=statsSingleSeason&season=${statyear}`,
+            },
+          });
+          const hitpitch = response2.data.stats[0].group?.displayName;
+          setState2(hitpitch);
+          window.localStorage.setItem(statyear, JSON.stringify(response2));
+        } catch (err) {
+          // eslint-disable-next-line no-console
+          console.log(err);
+        }
       }
-      try {
-        const response2 = await mlbStats.getPerson({
-          pathParams: {
-            personId: `${content.playerID}/stats?stats=statsSingleSeason&season=${statyear}`,
-          },
-        });
-        const hitpitch = response2.data.stats[0].group?.displayName;
-        setState2(hitpitch);
-        window.localStorage.setItem(statyear, JSON.stringify(response2));
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.log(err);
-      }
+      setLoading(false);
     }
 
-    useEffect(() => {
-      myResponse2();
-    }, []);
-  }
+    localStorage.clear();
+    myResponse2();
+  }, [content.playerID]);
 
   const renderthis = () => {
     return hitpitch === 'hitting' ? (
@@ -281,6 +281,9 @@ const View = (props) => {
   };
 
   var yoyo = renderthis();
+  if (isLoading) {
+    return <div className="App">Loading...</div>;
+  }
   return yoyo;
 };
 
