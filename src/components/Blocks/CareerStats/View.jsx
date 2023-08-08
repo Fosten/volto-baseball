@@ -71,7 +71,7 @@ const View = (props) => {
               personId: `${content.playerID}/stats?stats=statsSingleSeason&season=${statyear}`,
             },
           });
-          const hitpitch = response2.data.stats[0].group?.displayName;
+          const hitpitch = response2.data.stats[0]?.group?.displayName;
           setState2(hitpitch);
           window.localStorage.setItem(statyear, JSON.stringify(response2));
         } catch (err) {
