@@ -9,7 +9,7 @@ import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 const MLBStatsAPI = require('@asbeane/mlb-stats-api');
-const statyear = '2023';
+const statyear = '2024';
 const hitcats = [
   'Year',
   'Team',
@@ -74,7 +74,7 @@ const View = (props) => {
   const renderthis = () => {
     return hitpitch === 'hitting' ? (
       <div className="seasonstats">
-        <h2>2023 Hitting Stats</h2>
+        <h2>2024 Hitting Stats</h2>
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -157,7 +157,7 @@ const View = (props) => {
       </div>
     ) : hitpitch === 'pitching' ? (
       <div className="seasonstats">
-        <h2>2023 Pitching Stats</h2>
+        <h2>2024 Pitching Stats</h2>
         <Table celled>
           <Table.Header>
             <Table.Row>
