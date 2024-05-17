@@ -18,9 +18,7 @@ const View = (props) => {
   const [response5, setState] = useState({});
   async function myResponse5() {
     try {
-      const response5 = await axios.get(
-        `https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&hydrate=division`,
-      );
+      const response5 = await axios.get(`https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&hydrate=division`);
       setState(response5.data);
     } catch (err) {
       // eslint-disable-next-line no-console
@@ -65,8 +63,7 @@ const View = (props) => {
                       <Fragment key={i}>
                         <td>{item.teamRecords[0].team.name}</td>
                         <td>
-                          {item.teamRecords[0].leagueRecord.wins}-
-                          {item.teamRecords[0].leagueRecord.losses}
+                          {item.teamRecords[0].leagueRecord.wins}-{item.teamRecords[0].leagueRecord.losses}
                         </td>
                         <td>{item.teamRecords[0].leagueRecord.pct}</td>
                         <td>{item.teamRecords[0].gamesBack}</td>
@@ -85,8 +82,7 @@ const View = (props) => {
                       <Fragment key={i}>
                         <td>{item.teamRecords[1].team.name}</td>
                         <td>
-                          {item.teamRecords[1].leagueRecord.wins}-
-                          {item.teamRecords[1].leagueRecord.losses}
+                          {item.teamRecords[1].leagueRecord.wins}-{item.teamRecords[1].leagueRecord.losses}
                         </td>
                         <td>{item.teamRecords[1].leagueRecord.pct}</td>
                         <td>{item.teamRecords[1].gamesBack}</td>
@@ -105,8 +101,7 @@ const View = (props) => {
                       <Fragment key={i}>
                         <td>{item.teamRecords[2].team.name}</td>
                         <td>
-                          {item.teamRecords[2].leagueRecord.wins}-
-                          {item.teamRecords[2].leagueRecord.losses}
+                          {item.teamRecords[2].leagueRecord.wins}-{item.teamRecords[2].leagueRecord.losses}
                         </td>
                         <td>{item.teamRecords[2].leagueRecord.pct}</td>
                         <td>{item.teamRecords[2].gamesBack}</td>
@@ -125,8 +120,7 @@ const View = (props) => {
                       <Fragment key={i}>
                         <td>{item.teamRecords[3].team.name}</td>
                         <td>
-                          {item.teamRecords[3].leagueRecord.wins}-
-                          {item.teamRecords[3].leagueRecord.losses}
+                          {item.teamRecords[3].leagueRecord.wins}-{item.teamRecords[3].leagueRecord.losses}
                         </td>
                         <td>{item.teamRecords[3].leagueRecord.pct}</td>
                         <td>{item.teamRecords[3].gamesBack}</td>
@@ -145,8 +139,7 @@ const View = (props) => {
                       <Fragment key={i}>
                         <td>{item.teamRecords[4].team.name}</td>
                         <td>
-                          {item.teamRecords[4].leagueRecord.wins}-
-                          {item.teamRecords[4].leagueRecord.losses}
+                          {item.teamRecords[4].leagueRecord.wins}-{item.teamRecords[4].leagueRecord.losses}
                         </td>
                         <td>{item.teamRecords[4].leagueRecord.pct}</td>
                         <td>{item.teamRecords[4].gamesBack}</td>
@@ -191,8 +184,7 @@ const View = (props) => {
                       <Fragment key={i}>
                         <td>{item.teamRecords[0].team.name}</td>
                         <td>
-                          {item.teamRecords[0].leagueRecord.wins}-
-                          {item.teamRecords[0].leagueRecord.losses}
+                          {item.teamRecords[0].leagueRecord.wins}-{item.teamRecords[0].leagueRecord.losses}
                         </td>
                         <td>{item.teamRecords[0].leagueRecord.pct}</td>
                         <td>{item.teamRecords[0].gamesBack}</td>
@@ -211,8 +203,7 @@ const View = (props) => {
                       <Fragment key={i}>
                         <td>{item.teamRecords[1].team.name}</td>
                         <td>
-                          {item.teamRecords[1].leagueRecord.wins}-
-                          {item.teamRecords[1].leagueRecord.losses}
+                          {item.teamRecords[1].leagueRecord.wins}-{item.teamRecords[1].leagueRecord.losses}
                         </td>
                         <td>{item.teamRecords[1].leagueRecord.pct}</td>
                         <td>{item.teamRecords[1].gamesBack}</td>
@@ -231,8 +222,7 @@ const View = (props) => {
                       <Fragment key={i}>
                         <td>{item.teamRecords[2].team.name}</td>
                         <td>
-                          {item.teamRecords[2].leagueRecord.wins}-
-                          {item.teamRecords[2].leagueRecord.losses}
+                          {item.teamRecords[2].leagueRecord.wins}-{item.teamRecords[2].leagueRecord.losses}
                         </td>
                         <td>{item.teamRecords[2].leagueRecord.pct}</td>
                         <td>{item.teamRecords[2].gamesBack}</td>
@@ -251,8 +241,7 @@ const View = (props) => {
                       <Fragment key={i}>
                         <td>{item.teamRecords[3].team.name}</td>
                         <td>
-                          {item.teamRecords[3].leagueRecord.wins}-
-                          {item.teamRecords[3].leagueRecord.losses}
+                          {item.teamRecords[3].leagueRecord.wins}-{item.teamRecords[3].leagueRecord.losses}
                         </td>
                         <td>{item.teamRecords[3].leagueRecord.pct}</td>
                         <td>{item.teamRecords[3].gamesBack}</td>
@@ -271,8 +260,7 @@ const View = (props) => {
                       <Fragment key={i}>
                         <td>{item.teamRecords[4].team.name}</td>
                         <td>
-                          {item.teamRecords[4].leagueRecord.wins}-
-                          {item.teamRecords[4].leagueRecord.losses}
+                          {item.teamRecords[4].leagueRecord.wins}-{item.teamRecords[4].leagueRecord.losses}
                         </td>
                         <td>{item.teamRecords[4].leagueRecord.pct}</td>
                         <td>{item.teamRecords[4].gamesBack}</td>

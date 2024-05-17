@@ -55,8 +55,7 @@ const View = (props) => {
         {response.people?.map((item, i) => {
           return (
             <div key={i}>
-              <strong>Born:</strong> {item.birthDate} in {item.birthCity},{' '}
-              {item.birthCountry}
+              <strong>Born:</strong> {item.birthDate} in {item.birthCity}, {item.birthCountry}
               <br />
               <strong>Debut Date:</strong> {item.mlbDebutDate}
               <br />

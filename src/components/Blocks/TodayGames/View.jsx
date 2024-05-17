@@ -18,9 +18,7 @@ const View = (props) => {
   const [response4, setState] = useState({});
   async function myResponse4() {
     try {
-      const response4 = await axios.get(
-        `https://statsapi.mlb.com/api/v1/schedule?&sportId=1`,
-      );
+      const response4 = await axios.get(`https://statsapi.mlb.com/api/v1/schedule?&sportId=1`);
       setState(response4.data);
     } catch (err) {
       // eslint-disable-next-line no-console

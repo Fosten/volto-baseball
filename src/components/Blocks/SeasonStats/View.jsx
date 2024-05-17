@@ -10,36 +10,8 @@ import PropTypes from 'prop-types';
 
 const MLBStatsAPI = require('@asbeane/mlb-stats-api');
 const statyear = '2024';
-const hitcats = [
-  'Year',
-  'Team',
-  'League',
-  'AB',
-  'H',
-  'R',
-  'HR',
-  'RBI',
-  'SB',
-  'AVG',
-  'OBP',
-  'SLG',
-  'OPS',
-];
-const pitchcats = [
-  'Year',
-  'Team',
-  'League',
-  'GP',
-  'IP',
-  'H',
-  'ER',
-  'BB',
-  'K',
-  'W',
-  'SV',
-  'ERA',
-  'WHIP',
-];
+const hitcats = ['Year', 'Team', 'League', 'AB', 'H', 'R', 'HR', 'RBI', 'SB', 'AVG', 'OBP', 'SLG', 'OPS'];
+const pitchcats = ['Year', 'Team', 'League', 'GP', 'IP', 'H', 'ER', 'BB', 'K', 'W', 'SV', 'ERA', 'WHIP'];
 
 /**
  * View description block class.

@@ -11,18 +11,8 @@ const PlayerCardView = (props) => {
         <Helmet title={content.title} />
         <h1 className="documentFirstHeading">{content.title}</h1>
         <Segment clearing>
-          {hasBlocksData(content) ? (
-            <RenderBlocks content={content} />
-          ) : (
-            <div></div>
-          )}
-          <Image
-            src={flattenToAppURL(content.image?.scales?.preview?.download)}
-            size="small"
-            floated="right"
-            alt={content.image_caption}
-            avatar
-          />
+          {hasBlocksData(content) ? <RenderBlocks content={content} /> : <div></div>}
+          <Image src={flattenToAppURL(content.image?.scales?.preview?.download)} size="small" floated="right" alt={content.image_caption} avatar />
           <p dangerouslySetInnerHTML={{ __html: content.blurb?.data }} />
         </Segment>
       </div>

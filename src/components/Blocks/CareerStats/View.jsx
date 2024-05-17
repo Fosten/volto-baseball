@@ -21,36 +21,8 @@ function generateArrayOfYears() {
   return years;
 }
 const statyears = generateArrayOfYears();
-const hitcats = [
-  'Year',
-  'Team',
-  'League',
-  'AB',
-  'H',
-  'R',
-  'HR',
-  'RBI',
-  'SB',
-  'AVG',
-  'OBP',
-  'SLG',
-  'OPS',
-];
-const pitchcats = [
-  'Year',
-  'Team',
-  'League',
-  'GP',
-  'IP',
-  'H',
-  'ER',
-  'BB',
-  'K',
-  'W',
-  'SV',
-  'ERA',
-  'WHIP',
-];
+const hitcats = ['Year', 'Team', 'League', 'AB', 'H', 'R', 'HR', 'RBI', 'SB', 'AVG', 'OBP', 'SLG', 'OPS'];
+const pitchcats = ['Year', 'Team', 'League', 'GP', 'IP', 'H', 'ER', 'BB', 'K', 'W', 'SV', 'ERA', 'WHIP'];
 
 /**
  * View description block class.
@@ -111,8 +83,7 @@ const View = (props) => {
                       if (item.splits[i].numTeams > 1) {
                         return (
                           <td key={i}>
-                            {item.splits[1].team.name}/
-                            {item.splits[2].team.name}
+                            {item.splits[1].team.name}/{item.splits[2].team.name}
                           </td>
                         );
                       } else {
@@ -204,8 +175,7 @@ const View = (props) => {
                       if (item.splits[i].numTeams > 1) {
                         return (
                           <td key={i}>
-                            {item.splits[1].team.name}/
-                            {item.splits[2].team.name}
+                            {item.splits[1].team.name}/{item.splits[2].team.name}
                           </td>
                         );
                       } else {
@@ -238,9 +208,7 @@ const View = (props) => {
                       return <td key={i}>{item.splits[i].stat.gamesPlayed}</td>;
                     })}
                     {newObject.data.stats?.map((item, i) => {
-                      return (
-                        <td key={i}>{item.splits[i].stat.inningsPitched}</td>
-                      );
+                      return <td key={i}>{item.splits[i].stat.inningsPitched}</td>;
                     })}
                     {newObject.data.stats?.map((item, i) => {
                       return <td key={i}>{item.splits[i].stat.hits}</td>;
