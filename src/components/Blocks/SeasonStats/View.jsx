@@ -20,11 +20,11 @@ const pitchcats = ['Year', 'Team', 'League', 'GP', 'IP', 'H', 'ER', 'BB', 'K', '
  */
 const View = (props) => {
   const { content } = props;
-  const mlbStats = new MLBStatsAPI();
   const [response3, setState] = useState({});
   const [hitpitch, setState3] = useState('null');
 
   useEffect(() => {
+    const mlbStats = new MLBStatsAPI();
     async function myResponse3() {
       try {
         const response3 = await mlbStats.getPerson({
@@ -41,7 +41,7 @@ const View = (props) => {
       }
     }
     myResponse3();
-  }, [content.playerID, mlbStats]);
+  }, [content.playerID]);
 
   const renderthis = () => {
     return hitpitch === 'hitting' ? (

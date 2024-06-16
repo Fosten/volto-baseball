@@ -15,10 +15,10 @@ const MLBStatsAPI = require('@asbeane/mlb-stats-api');
  */
 const View = (props) => {
   const { content } = props;
-  const mlbStats = new MLBStatsAPI();
   const [response, setState] = useState({});
 
   useEffect(() => {
+    const mlbStats = new MLBStatsAPI();
     async function myResponse() {
       try {
         const response = await mlbStats.getPerson({
@@ -31,7 +31,7 @@ const View = (props) => {
       }
     }
     myResponse();
-  }, [content.playerID, mlbStats]);
+  }, [content.playerID]);
 
   return (
     <div className="container">
