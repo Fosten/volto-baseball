@@ -8,7 +8,6 @@ const PlayerCardView = (props) => {
   return (
     <Container>
       <div id="page-document">
-        <Helmet title={content.title} />
         <h1 className="documentFirstHeading">{content.title}</h1>
         <Segment clearing>
           {hasBlocksData(content) ? <RenderBlocks content={content} /> : <div></div>}
