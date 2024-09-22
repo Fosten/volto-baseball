@@ -15,12 +15,13 @@ export default function applyConfig(config) {
     ...config.blocks,
     initialBlocks: {
       ...config.blocks.initialBlocks,
-      playercard: ['playerinfo', 'seasonstats', 'careerstats', 'text'],
+      playercard: ['playerinfo', 'seasonstats', 'careerstats', 'slate'],
     },
     blocksConfig: {
       ...config.blocks.blocksConfig,
       ...customBlocks,
     },
   };
+
   return config;
 }
