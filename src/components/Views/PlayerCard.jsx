@@ -1,4 +1,3 @@
-import { Helmet } from '@plone/volto/helpers';
 import { Container, Image, Segment } from 'semantic-ui-react';
 import { hasBlocksData, flattenToAppURL } from '@plone/volto/helpers';
 import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
