@@ -1,6 +1,6 @@
 {
   "name": "@Fosten/volto-baseball",
-  "version": "0.1.0",
+  "version": "1.2.0",
   "description": "volto-baseball: Volto add-on",
   "main": "src/index.js",
   "license": "MIT",
