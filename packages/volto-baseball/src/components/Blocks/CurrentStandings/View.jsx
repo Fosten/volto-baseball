@@ -70,7 +70,7 @@ const View = (props) => {
                         </td>
                         <td>{item.teamRecords[0].leagueRecord.pct}</td>
                         <td>{item.teamRecords[0].gamesBack}</td>
-                        <td>{item.teamRecords[0].streak.streakCode}</td>
+                        <td>{item.teamRecords[0].streak?.streakCode}</td>
                       </Fragment>
                     );
                   } else {
@@ -90,7 +90,7 @@ const View = (props) => {
                         </td>
                         <td>{item.teamRecords[1].leagueRecord.pct}</td>
                         <td>{item.teamRecords[1].gamesBack}</td>
-                        <td>{item.teamRecords[1].streak.streakCode}</td>
+                        <td>{item.teamRecords[1].streak?.streakCode}</td>
                       </Fragment>
                     );
                   } else {
@@ -110,7 +110,7 @@ const View = (props) => {
                         </td>
                         <td>{item.teamRecords[2].leagueRecord.pct}</td>
                         <td>{item.teamRecords[2].gamesBack}</td>
-                        <td>{item.teamRecords[2].streak.streakCode}</td>
+                        <td>{item.teamRecords[2].streak?.streakCode}</td>
                       </Fragment>
                     );
                   } else {
@@ -130,7 +130,7 @@ const View = (props) => {
                         </td>
                         <td>{item.teamRecords[3].leagueRecord.pct}</td>
                         <td>{item.teamRecords[3].gamesBack}</td>
-                        <td>{item.teamRecords[3].streak.streakCode}</td>
+                        <td>{item.teamRecords[3].streak?.streakCode}</td>
                       </Fragment>
                     );
                   } else {
@@ -150,7 +150,7 @@ const View = (props) => {
                         </td>
                         <td>{item.teamRecords[4].leagueRecord.pct}</td>
                         <td>{item.teamRecords[4].gamesBack}</td>
-                        <td>{item.teamRecords[4].streak.streakCode}</td>
+                        <td>{item.teamRecords[4].streak?.streakCode}</td>
                       </Fragment>
                     );
                   } else {
@@ -196,7 +196,7 @@ const View = (props) => {
                         </td>
                         <td>{item.teamRecords[0].leagueRecord.pct}</td>
                         <td>{item.teamRecords[0].gamesBack}</td>
-                        <td>{item.teamRecords[0].streak.streakCode}</td>
+                        <td>{item.teamRecords[0].streak?.streakCode}</td>
                       </Fragment>
                     );
                   } else {
@@ -216,7 +216,7 @@ const View = (props) => {
                         </td>
                         <td>{item.teamRecords[1].leagueRecord.pct}</td>
                         <td>{item.teamRecords[1].gamesBack}</td>
-                        <td>{item.teamRecords[1].streak.streakCode}</td>
+                        <td>{item.teamRecords[1].streak?.streakCode}</td>
                       </Fragment>
                     );
                   } else {
@@ -236,7 +236,7 @@ const View = (props) => {
                         </td>
                         <td>{item.teamRecords[2].leagueRecord.pct}</td>
                         <td>{item.teamRecords[2].gamesBack}</td>
-                        <td>{item.teamRecords[2].streak.streakCode}</td>
+                        <td>{item.teamRecords[2].streak?.streakCode}</td>
                       </Fragment>
                     );
                   } else {
@@ -256,7 +256,7 @@ const View = (props) => {
                         </td>
                         <td>{item.teamRecords[3].leagueRecord.pct}</td>
                         <td>{item.teamRecords[3].gamesBack}</td>
-                        <td>{item.teamRecords[3].streak.streakCode}</td>
+                        <td>{item.teamRecords[3].streak?.streakCode}</td>
                       </Fragment>
                     );
                   } else {
@@ -276,7 +276,7 @@ const View = (props) => {
                         </td>
                         <td>{item.teamRecords[4].leagueRecord.pct}</td>
                         <td>{item.teamRecords[4].gamesBack}</td>
-                        <td>{item.teamRecords[4].streak.streakCode}</td>
+                        <td>{item.teamRecords[4].streak?.streakCode}</td>
                       </Fragment>
                     );
                   } else {
