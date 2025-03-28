@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 const MLBStatsAPI = require('@asbeane/mlb-stats-api');
 const mlbStats = new MLBStatsAPI();
 function generateArrayOfYears() {
-  var max = 2024;
+  var max = 2025;
   var min = max - 20;
   var years = [];
 
