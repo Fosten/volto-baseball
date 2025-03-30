@@ -1,6 +1,6 @@
 {
   "name": "volto-baseball-dev",
-  "version": "2.0.0-alpha.0",
+  "version": "2.1.0",
   "description": "Volto wrapper around a Node.js Library for making requests to the MLB Stats API",
   "author": "Brian Davis",
   "homepage": "https://github.com/fosten/volto-baseball",
